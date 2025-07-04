@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italiana&family=League+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="variables.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <title>Invitación Abril Amairany</title>
+  </head>
+  <body>
+    <div class="envelope">
+      <div class="sello" onclick="abrirSobre()">
+        <img
+          src="./assets/sello.png"
+          width="100%"
+          height="100%"
+          alt=""
+          onclick="PlayAudio()"
+        />
+        <span class="tooltip">Click aquí</span>
+      </div>
+      <div class="puerta izquierda"></div>
+      <div class="puerta derecha"></div>
+
+      <div class="invitacion">
+        <div class="titulo">
+          <h1>Mis XV</h1>
+          <p>Abril Amairany</p>
+        </div>
+
+        <div class="container__foto">
+          <div class="card__foto">
+            <img
+              src="assets/Portada.jpeg"
+              width="100%"
+              height="100%"
+              alt="portada"
+            />
+          </div>
+        </div>
+
+        <div class="contador">
+          <div class="fecha">16/08/2025</div>
+          <div class="texto__fecha">Solo faltan</div>
+          <section>
+            <table align="center" width="90%">
+              <tr>
+                <td>
+                  <span id="days"></span>
+                  <div class="label">Días</div>
+                </td>
+                <td>
+                  <span id="hours"></span>
+                  <div class="label">Horas</div>
+                </td>
+                <td>
+                  <span id="minutes"></span>
+                  <div class="label">Minutos</div>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </div>
+
+        <div class="bienvenida">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M155.6 17.3C163 3 179.9-3.6 195 1.9L320 47.5l125-45.6c15.1-5.5 32 1.1 39.4 15.4l78.8 152.9c28.8 55.8 10.3 122.3-38.5 156.6L556.1 413l41-15c16.6-6 35 2.5 41 19.1s-2.5 35-19.1 41l-71.1 25.9L476.8 510c-16.6 6.1-35-2.5-41-19.1s2.5-35 19.1-41l41-15-31.3-86.2c-59.4 5.2-116.2-34-130-95.2L320 188.8l-14.6 64.7c-13.8 61.3-70.6 100.4-130 95.2l-31.3 86.2 41 15c16.6 6 25.2 24.4 19.1 41s-24.4 25.2-41 19.1L92.2 484.1 21.1 458.2c-16.6-6.1-25.2-24.4-19.1-41s24.4-25.2 41-19.1l41 15 31.3-86.2C66.5 292.5 48.1 226 76.9 170.2L155.6 17.3zm44 54.4l-27.2 52.8L261.6 157l13.1-57.9L199.6 71.7zm240.9 0L365.4 99.1 378.5 157l89.2-32.5L440.5 71.7z"
+            />
+          </svg>
+          <p>
+            ¡Fuiste invitado a mi fiesta! Me emociona mucho compartir este día
+            tan especial contigo. Prepárate para una noche llena de alegría,
+            sorpresas y momentos inolvidables. ¡Te espero para celebrar juntos!
+          </p>
+        </div>
+
+        <div class="agradecimiento">
+          <div class="padres">
+            <div class="card1">
+              <div class="card-header1">A MIS PADRES</div>
+              <div class="card-body1">
+                <blockquote class="blockquote mb-0">
+                  <h2 class="nombresP">Mary Santana y David Mata</h2>
+                  <p>
+                    Mis XV años son también su logro. Gracias por cada
+                    sacrificio, por ser mi hogar, mi fuerza y mi ejemplo. Quiero
+                    que vivamos juntos esta noche tan especial, celebrando con
+                    alegría y orgullo el inicio de una nueva etapa y un nuevo
+                    capítulo en mi vida, con todo mi amor.
+                  </p>
+                  <footer class="blockquote-footer">
+                    De todo corazon
+                    <cite title="Source Title">Abril</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <div class="padrinos">
+            <div class="card1">
+              <div class="card-header1">A MI PADRINOS</div>
+              <div class="card-body1">
+                <blockquote class="blockquote mb-0">
+                  <h2 class="nombresP">Ismael Santana</h2>
+                  <p>
+                    Hoy doy un paso importante, y me honra que seas parte de
+                    esta etapa. Gracias por tu apoyo y por ser parte de mi
+                    historia.
+                  </p>
+                  <footer class="blockquote-footer">
+                    De todo corazon
+                    <cite title="Source Title">Abril</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <div class="intinerario"><p>Itinerario</p></div>
+          <div class="container py-5">
+            <div class="main-timeline-2">
+              <div class="timeline-2 left-2">
+                <div class="card">
+                  <img
+                    src="assets/iglesia.jpg"
+                    class="card-img-top"
+                    alt="Responsive image"
+                  />
+                  <div class="card-body p-4">
+                    <h1>Parroquia de Nuestra Señora de Juquila</h1>
+                    <small class="hora">4:00 PM</small>
+                    <p class="text-muted mb-4">
+                      Mochica Manzana 001, Americas II, 56610 Valle de Chalco
+                      Solidaridad, Méx.
+                    </p>
+                    <button type="button" class="btn btn-outline-dark">
+                      <a href="https://maps.app.goo.gl/nkT6BMzBeeNzA1HJ8"
+                        >Ver Ubicación</a
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-2 right-2">
+                <div class="card">
+                  <div class="card-body p-4">
+                    <h1>Lugar del Evento</h1>
+                    <small class="hora">Terminando la misa</small>
+                    <p class="text-muted mb-4">
+                      calle poniente 2 Mzn 101 lote 27 colonia san Miguel xico
+                      II sección
+                    </p>
+                    <button type="button" class="btn btn-outline-dark">
+                      <a href="">Ver Ubicación</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="mesa__regalos">
+          <h1>Mesa de Regalos</h1>
+          <i></i>
+          <p>
+            Este día marca el inicio de una nueva etapa en mi vida, y quiero
+            compartirla con ustedes. Su presencia es el regalo más valioso, pero
+            si desean hacer más especial este día, un regalo será maravilloso.
+          </p>
+        </div>
+
+        <div class="codigo__vestimenta">
+          <h1>Codigo de Vestimenta</h1>
+          <i></i>
+          <p>
+            La vestimenta es formal, pero siéntete libre de venir cómodo/a. Te
+            pedimos no usar ninguna prenda de color rojo, ya que esta reservado
+            para la quinceañera.
+          </p>
+        </div>
+
+        <div class="confirmar">
+          <span>Confirmar Asistencia</span>
+          <p>
+            Por favor, confirma tu asistencia. Nos importa mucho contar con tu
+            presencia en este día tan especial.
+          </p>
+          <button type="button" class="confirmarBtn">
+            <a href="https://wa.link/nonwsk"> Confirmar Asistencia </a>
+          </button>
+        </div>
+
+        <div class="musica">
+          <audio id="musica1" controls autoplay loop>
+            <source src="/assets/JVKE - pretty (official lyric video).mp3" />
+            Este navegador no acepta formatos de audio
+          </audio>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

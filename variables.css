@@ -1,0 +1,19 @@
+:root {
+  --color-fondo: #eeeeee;
+  --color-rojo1: #f21b2d;
+  --color-rojo2: #bf0413;
+  --color-sombra: #bf7839;
+
+  --bg-gradient: linear-gradient(
+    75deg,
+    #bf7839,
+    /* Dorado oscuro */ #bf8c4e,
+    /* Bronce */ #d9af62,
+    /* Oro medio */ #f2dc99,
+    /* Oro claro */ #f2d680,
+    /* Brillo dorado */ #f2dc99,
+    /* Oro claro */ #d9af62,
+    /* Oro medio */ #bf8c4e,
+    /* Bronce */ #bf7839 /* Dorado oscuro */
+  );
+}

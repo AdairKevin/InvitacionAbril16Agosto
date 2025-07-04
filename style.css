@@ -1,0 +1,643 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--color-fondo);
+  display: flex;
+  cursor: pointer;
+  background-size: 10px 10px;
+  overflow: hidden;
+  .invitacion {
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .invitacion {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.sello {
+  width: 90px;
+  height: 90px;
+  background-color: #800020; /* Color borgoña */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.5); /* Sombra para el sello */
+  transition: opacity 1s ease;
+}
+
+.sello img {
+  width: 137px;
+  height: 115px;
+}
+
+.sello .tooltip {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.614);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 1;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sello .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.614) transparent transparent transparent;
+}
+
+.puerta {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transition: transform 1s ease;
+  box-shadow: 2px 0 5px rgb(0, 0, 0);
+  background-image: linear-gradient(
+      rgba(252, 184, 37, 0.312),
+      rgba(255, 218, 154, 0.412)
+    ),
+    url("assets/texture-f5af94d3.png");
+  background-size: cover;
+}
+
+.puerta.izquierda {
+  left: 0;
+  transform-origin: left;
+}
+
+.puerta.derecha {
+  right: 0;
+  transform-origin: right;
+  box-shadow: -7px 0 8px rgba(0, 0, 0, 0.3); /* Sombra entre las puertas */
+}
+
+.envelope.abierto .puerta.izquierda {
+  transform: rotateY(-90deg);
+}
+
+.envelope.abierto .puerta.derecha {
+  transform: rotateY(90deg);
+}
+
+.envelope.abierto .sello {
+  opacity: 0;
+}
+
+.envelope.abierto .invitacion {
+  opacity: 1;
+}
+
+.envelope.abierto {
+  cursor: default;
+  overflow: auto;
+}
+
+.invitacion {
+  transition: all 4s ease;
+}
+
+/*Estilos para la invitacion*/
+
+.titulo {
+  width: 100%;
+  text-align: center;
+  h1 {
+    margin-top: 15px;
+    font-size: 60px;
+    font-family: "Italiana", serif;
+  }
+  p {
+    margin-top: -30px;
+    font-size: 50px;
+    font-family: "League Script", serif;
+  }
+}
+
+.container__foto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card__foto {
+  width: 80%; /* Ancho del 80% del contenedor */
+  overflow: hidden; /* Recortar el exceso de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/2;
+  object-fit: contain;
+  object-position: top;
+
+  border: 4px solid var(--color-rojo1);
+
+  box-shadow: var(--color-sombra) 0px 0px 10px 0px; /* Sombra */
+  background-color: white;
+}
+
+.card__foto img {
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: 100%; /* La imagen ocupa todo el alto del contenedor */
+  object-fit: cover; /* Cubrir el espacio sin distorsionar, recortando el exceso */
+}
+
+.contador {
+  width: 100%;
+  margin-top: 5%;
+  padding: 20px;
+  text-align: center;
+}
+
+.fecha {
+  font-size: 50px;
+  font-family: "Italiana", serif;
+}
+
+.texto__fecha {
+  margin-top: -30px;
+  font-size: 40px;
+  font-family: "League Script", serif;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px; /* Espacio entre celdas */
+}
+
+td,
+th {
+  background-color: hsl(0, 0%, 99%); /* Fondo oscuro para las celdas */
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+td .label {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Italiana", serif;
+  color: var(--color-rojo2);
+  margin-top: 10px; /* Espacio entre el número y el texto */
+}
+
+/* Estilos para los números */
+td span {
+  display: inline-block;
+  min-width: 60px; /* Ancho mínimo para asegurar que los números no se amontonen */
+  padding: 10px;
+  background-color: var(--color-rojo2); /* Color de fondo para los números */
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.bienvenida {
+  font-family: "Italiana", serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px;
+  margin-top: 50px;
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: cardAnimacionD;
+  background: var(--bg-gradient);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.279);
+  p {
+    font-family: "Italiana", serif;
+  }
+  svg {
+    width: 50px;
+    margin-bottom: 22px;
+    color: #ffffff;
+  }
+}
+
+.agradecimiento {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.padres {
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: cardAnimacionI;
+}
+
+.padrinos {
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: cardAnimacionD;
+}
+
+@keyframes cardAnimacionI {
+  0% {
+    transform: translateX(-500px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardAnimacionD {
+  0% {
+    transform: translateX(500px);
+  }
+
+  60% {
+    transform: translateX(0);
+  }
+}
+.padres,
+.padrinos {
+  width: 90%;
+}
+
+/* Estilos para las tarjetas */
+.card1 {
+  background-color: #ffffff;
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 10px 30px rgba(5, 5, 5, 0.358); /* Sombra rosa */
+  overflow: hidden;
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.card-header1 {
+  background-color: var(--color-rojo2); /* Rosa fuerte */
+  color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Italiana", serif;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.311);
+}
+
+.card-body1 {
+  background-color: #ffffff;
+  padding: 20px;
+  color: #000000;
+  p {
+    font-size: 16px;
+  }
+}
+
+.blockquote {
+  margin: 0;
+  font-style: italic;
+}
+
+.blockquote-footer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-rojo2);
+}
+
+.blockquote-footer cite {
+  color: var(--color-rojo2);
+}
+
+.nombresP {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Estilos generales para el carrusel */
+.carrosel {
+  width: 90%;
+  margin: 10% auto auto auto;
+  aspect-ratio: 1 / 1; /* Hacer el carrusel cuadrado */
+  overflow: hidden; /* Recortar el exceso */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: var(--color-sombra) 0px 0px 10px 0px; /* Sombra rosa */
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: cardAnimacionI;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* Mantener el aspecto cuadrado */
+}
+
+.carousel-item img {
+  object-fit: cover;
+  /* Recortar la imagen sin distorsionar */
+}
+
+/*Estilos linea del tiempo*/
+.main-timeline-2 {
+  position: relative;
+}
+
+.intinerario {
+  margin-top: 15%;
+
+  font-size: 50px;
+  text-align: center;
+  font-family: "League Script", serif;
+
+  h1 {
+    margin-top: 15px;
+    font-size: 60px;
+    font-family: "Italiana", serif;
+  }
+  p {
+    margin-top: -30px;
+    font-size: 50px;
+    font-family: "League Script", serif;
+  }
+}
+
+.card {
+  box-shadow: 9px 10px 25px 0px rgba(191, 172, 4, 0.58);
+  -webkit-box-shadow: 9px 10px 25px 0px rgba(191, 4, 19, 0.58);
+  -moz-box-shadow: 9px 10px 25px 0px rgba(191, 4, 19, 0.58); /* Sombra rosa */
+
+  h1 {
+    font-family: "League Script", serif;
+    font-weight: 600;
+  }
+}
+
+.card a {
+  text-decoration: none;
+  color: unset;
+}
+
+.card img {
+  max-height: 300px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline-2::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background-color: var(--color-rojo1);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline-2 {
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-2::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -11px;
+  background-color: var(--color-rojo2);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left-2 {
+  padding: 0px 40px 20px 0px;
+  left: 0;
+}
+
+/* Place the container to the right */
+.right-2 {
+  padding: 0px 0px 20px 40px;
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left-2::before {
+  content: " ";
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(255, 255, 255);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(255, 255, 255);
+}
+
+/* Add arrows to the right container (pointing left) */
+.right-2::before {
+  content: " ";
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right-2::after {
+  left: -14px;
+}
+
+.hora {
+  font-size: 18px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .main-timeline-2::after {
+    left: 31px;
+  }
+
+  /* Full-width containers */
+  .timeline-2 {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .timeline-2::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left-2::after,
+  .right-2::after {
+    left: 18px;
+  }
+
+  .left-2::before {
+    right: auto;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .right-2 {
+    left: 0%;
+  }
+}
+
+.mesa__regalos {
+  width: 100%;
+  margin-top: 10%;
+  padding: 20px;
+  background: var(--bg-gradient);
+  text-align: center;
+  color: #000000;
+
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+
+  animation-name: izquierda;
+
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.311);
+
+  h1 {
+    font-family: "League Script", serif;
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 17px;
+  }
+}
+
+@keyframes izquierda {
+  0% {
+    transform: translateX(-200px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+}
+
+.codigo__vestimenta {
+  width: 100%;
+  padding: 20px;
+  background: var(--color-rojo2);
+  text-align: center;
+  color: #fdf7e5;
+
+  view-timeline-name: --container;
+  view-timeline-axis: block;
+  animation-timeline: --container;
+  animation-name: derecha;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.311);
+
+  h1 {
+    font-family: "League Script", serif;
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 17px;
+  }
+}
+
+@keyframes derecha {
+  0% {
+    transform: translateX(200px);
+  }
+
+  34% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.confirmar {
+  padding: 20px;
+  margin-top: 5%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.confirmar span {
+  font-family: "League Script", serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+.confirmar a {
+  text-decoration: none;
+  color: unset;
+}
+
+.confirmarBtn {
+  border: none;
+  padding: 10px 15px;
+  background: #f21b2d;
+  border-radius: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: #fdf7e5;
+}
+
+.musica {
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+}
